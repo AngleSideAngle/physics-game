@@ -3,8 +3,9 @@ from avatar import avatar, pygame
 
 def main():
     pygame.init()
-    screen = pygame.display.set_mode((600,600))
+    screen = pygame.display.set_mode((1200,600))
     pygame.display.set_caption("amogus")
+    pygame.key.set_repeat(5,150)
 
     background = pygame.Surface(screen.get_size())
     background = background.convert()
@@ -36,10 +37,3 @@ def main():
         allsprites.draw(screen)
         pygame.display.flip() 
 main()
-print(
-"""
-----------------
-hs freshman btw
-----------------
-"""
-)
