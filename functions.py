@@ -13,7 +13,27 @@ def getImage(img_name, size):
 
     return image, image.get_rect()
 
-def collide(object, direction):
-    object.velocity[direction] = -object.velocity[direction] # changes speed
-    object.rect = object.rect.move(object.velocity) # move back
-    object.velocity[direction] /= object.bounce # reduces speed
+def collide(object, border, axis):
+    directions = {
+        "left" : (object.dimensions.left, object.rect.left),
+        "right" : (object.dimensions.right, object.rect.right),
+        "top" : (object.dimensions.top, object.rect.top),
+        "bottom" : (object.dimensions.bottom, object.rect.bottom)
+    }
+    difference = directions[border][0] - directions[border][1]
+    object.velocity[axis] = -object.velocity[axis]
+    object.velocity[axis] /= object.bounce
+    return difference
+    
+
+    '''
+    for axis in range(len(direction)):
+        if direction[axis] == True:
+            object.velocity[axis] = -object.velocity[axis] # changes speed
+
+    move_back = object.velocity # amount object must return
+    
+    for axis in range(len(direction)):
+        if direction[axis] == True:
+            object.velocity[axis] /= object.bounce # reduces speed
+            '''

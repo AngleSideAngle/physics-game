@@ -14,7 +14,7 @@ def main():
     screen.blit(background, (0, 0))
     pygame.display.flip()
 
-    amogus = avatar(x = 100, y = 100, velocity = [5,5], gravity = 1)
+    amogus = avatar(x = background.get_width()/2, y = background.get_height()/2)
     allsprites = pygame.sprite.RenderPlain((amogus))
     clock = pygame.time.Clock()
 
@@ -27,16 +27,19 @@ def main():
                 return
             elif event.type == KEYDOWN and event.key == K_ESCAPE:
                 return
+            if event.type == KEYDOWN and event.key == K_SPACE:
+                jump = True
             if event.type == KEYDOWN and event.key == K_a:
                 user_input[0] -= 1
             if event.type == KEYDOWN and event.key == K_d:
                 user_input[0] += 1
-            if event.type == KEYDOWN and event.key == K_SPACE:
-                jump = True
+            
 
         allsprites.update(user_input = user_input, jump = jump)
 
         screen.blit(background, (0,0))
         allsprites.draw(screen)
-        pygame.display.flip() 
-main()
+        pygame.display.flip()
+
+if __name__ == "__main__":
+    main()
