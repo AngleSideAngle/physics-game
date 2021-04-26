@@ -9,13 +9,17 @@ class avatar(pygame.sprite.Sprite):
     gravity = 1, 
     bounce = 1.1, 
     strength = 10, 
-    jumps = 2, 
+    jumps = 1, 
     terminal_velocity = 25,
     ground_boundary = 50, 
     color = "red"
     ):
         pygame.sprite.Sprite.__init__(self)
-        self.image, self.rect = getImage(img_name = "red.jpg", size = (80,80))
+        colors = {
+            "red" : "red.jpg",
+            "purple" : "purple.jpg"
+        }
+        self.image, self.rect = getImage(img_name = colors[color], size = (80,80))
         self.rect.x = x
         self.rect.y = y
         self.velocity = velocity
@@ -55,10 +59,11 @@ class avatar(pygame.sprite.Sprite):
             coords = self.rect.move(difference)
             self.rect = coords
 
+            # adding to jump counter
             if self.jumps < self.max_jumps:
                 self.jumps += 1
-        
-            # might cause character to glitch into wall
+
+            # horizontal deceleration
             if self.velocity[0] > 0:
                 self.velocity[0] -= 1
             elif self.velocity[0] < 0:
@@ -75,7 +80,6 @@ class avatar(pygame.sprite.Sprite):
             
         if self.rect.bottom < self.ground_boundary and -1 < self.velocity[1]:
             self.velocity[1] = 0
-
     
         if jump == True:
             self._jump()
