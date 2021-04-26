@@ -12,3 +12,8 @@ def getImage(img_name, size):
     image = image.convert()
 
     return image, image.get_rect()
+
+def collide(object, direction):
+    object.velocity[direction] = -object.velocity[direction] # changes speed
+    object.rect = object.rect.move(object.velocity) # move back
+    object.velocity[direction] /= object.bounce # reduces speed

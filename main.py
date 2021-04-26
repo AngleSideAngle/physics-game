@@ -21,6 +21,7 @@ def main():
     while True:
         clock.tick(60)
         user_input = [0,0]
+        jump = False
         for event in pygame.event.get():
             if event.type == QUIT:
                 return
@@ -31,9 +32,9 @@ def main():
             if event.type == KEYDOWN and event.key == K_d:
                 user_input[0] += 1
             if event.type == KEYDOWN and event.key == K_SPACE:
-                amogus.jump()
+                jump = True
 
-        allsprites.update(user_input = user_input)
+        allsprites.update(user_input = user_input, jump = jump)
 
         screen.blit(background, (0,0))
         allsprites.draw(screen)
