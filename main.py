@@ -34,6 +34,12 @@ def main():
 
         screen.blit(background, (0,0))
         allsprites.draw(screen)
-        pygame.display.flip()
-        
+        pygame.display.flip() 
 main()
+print(
+"""
+----------------
+hs freshman btw
+----------------
+"""
+)
