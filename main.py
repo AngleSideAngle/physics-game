@@ -1,3 +1,4 @@
+from pygame.locals import *
 from avatar import avatar, pygame
 
 def main():
