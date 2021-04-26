@@ -5,7 +5,7 @@ def main():
     pygame.init()
     screen = pygame.display.set_mode((1200,600))
     pygame.display.set_caption("amogus")
-    pygame.key.set_repeat(5,150)
+    pygame.key.set_repeat(1,10)
 
     background = pygame.Surface(screen.get_size())
     background = background.convert()
@@ -30,6 +30,8 @@ def main():
                 user_input[0] -= 1
             if event.type == KEYDOWN and event.key == K_d:
                 user_input[0] += 1
+            if event.type == KEYDOWN and event.key == K_SPACE:
+                amogus.jump()
 
         allsprites.update(user_input = user_input)
 
