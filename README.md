@@ -1,2 +1,2 @@
-# amogus-jumping-thing
-This was made for a joke hackathon that had an among us theme, it works suprisingly well.
+# 2d game with cool physics made in pygame
+The sprites are from among us, I'm sorry if this ruined your day.
