@@ -3,7 +3,7 @@ from functions import getImage, pygame
 class avatar(pygame.sprite.Sprite):
     def __init__(self, x = 0, y = 0, velocity = [0,0], gravity = 1, bounce = 1.1, strength = 10, jumps = 2, color = "red"):
         pygame.sprite.Sprite.__init__(self)
-        self.image, self.rect = getImage(img_name = "red.jpg", size = (100,100))
+        self.image, self.rect = getImage(img_name = "red.jpg", size = (80,80))
         self.rect.x = x
         self.rect.y = y
         self.velocity = velocity
