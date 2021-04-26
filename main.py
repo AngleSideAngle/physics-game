@@ -14,8 +14,8 @@ def main():
     screen.blit(background, (0, 0))
     pygame.display.flip()
 
-    amogus = avatar(x = background.get_width()/2, y = background.get_height()/2, color = "red")
-    allsprites = pygame.sprite.RenderPlain((amogus))
+    player = avatar(x = background.get_width()/2, y = background.get_height()/2, color = "red")
+    allsprites = pygame.sprite.RenderPlain((player))
     clock = pygame.time.Clock()
 
     while True:
